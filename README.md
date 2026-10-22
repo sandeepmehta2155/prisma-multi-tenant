@@ -120,19 +120,19 @@ Read more on how `prisma-multi-tenant` can help you achieve multi-tenancy for yo
 - [Issues with Vercel](/docs/Vercel.md)
 - [Contributing guide](/docs/Contributing_Guide.md)
 
-## Author
+## Maintainer
 
-👤 **Thibaud Courtoison**
+👤 **Sandeep Mehta**
 
-- Twitter: [@Errorname\_](https://twitter.com/Errorname_)
-- Github: [@Errorname](https://github.com/Errorname)
-- Prisma's Slack: [@Errorname](https://slack.prisma.io/)
+- Github: [@sandeepmehta2155](https://github.com/sandeepmehta2155)
+
+Originally created by [Thibaud Courtoison](https://github.com/Errorname).
 
 ## 🤝 Contributors
 
 Contributions, issues, and feature requests are welcome! 🙌
 
-Feel free to check [issues page](https://github.com/Errorname/prisma-multi-tenant/issues).
+Feel free to check [issues page](https://github.com/sandeepmehta2155/prisma-multi-tenant/issues).
 
 ## Show your support
 
@@ -140,6 +140,7 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
+Copyright © 2026 [Sandeep Mehta](https://github.com/sandeepmehta2155).<br>
 Copyright © 2020 [Thibaud Courtoison](https://github.com/Errorname).
 
-This project is [MIT](https://github.com/Errorname/prisma-multi-tenant/blob/master/LICENSE) licensed.
+This project is [MIT](LICENSE) licensed.
