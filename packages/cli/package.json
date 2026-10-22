@@ -1,13 +1,15 @@
 {
   "name": "prisma-multi-tenant-v3",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "type": "commonjs",
   "description": "Command Line Interface for prisma-multi-tenant",
   "author": {
-    "name": "Thibaud Courtoison",
-    "email": "do.not.press.enter@gmail.com",
-    "url": "https://errorna.me"
+    "name": "Sandeep Mehta",
+    "url": "https://github.com/sandeepmehta2155"
   },
+  "contributors": [
+    "Thibaud Courtoison (https://errorna.me)"
+  ],
   "license": "MIT",
   "bin": {
     "prisma-multi-tenant-v3": "build/index.js",
@@ -51,9 +53,9 @@
     "multi-tenant"
   ],
   "bugs": {
-    "url": "https://github.com/Errorname/prisma-multi-tenant/issues"
+    "url": "https://github.com/sandeepmehta2155/prisma-multi-tenant/issues"
   },
-  "homepage": "https://github.com/Errorname/prisma-multi-tenant#readme",
+  "homepage": "https://github.com/sandeepmehta2155/prisma-multi-tenant#readme",
   "prettier": {
     "printWidth": 100,
     "semi": false,
