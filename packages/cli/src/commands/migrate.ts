@@ -8,7 +8,7 @@ import {
   runLocalPrisma,
   spawnShell,
   getSchemaPath,
-} from '@prisma-multi-tenant-v2/shared'
+} from '@prisma-multi-tenant-v3/shared'
 
 import { Command, CommandArguments } from '../types'
 
@@ -162,10 +162,8 @@ class Migrate implements Command {
     prismaArgs = ''
   ) {
     schemaPath = schemaPath || (await getSchemaPath())
-    return runDistantPrisma(
-      `migrate ${action} ${migrateArgs} --schema ${schemaPath} ${prismaArgs}`,
-      tenant
-    )
+    // Ported from published prisma-multi-tenant-v2@1.0.24 (never committed): tenants are synced with db push
+    return runDistantPrisma(`db push --schema ${schemaPath} ${prismaArgs}`, tenant)
   }
 
   migrateManagement(action: string, migrateArgs = '', prismaArgs = '') {

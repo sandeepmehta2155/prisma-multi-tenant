@@ -1,5 +1,5 @@
 // @ts-ignore
-const { MultiTenant } = require('@prisma-multi-tenant/client')
+const { MultiTenant } = require('@prisma-multi-tenant-v3/client')
 
 // If timeout error, increase the number
 jest.setTimeout(300000)

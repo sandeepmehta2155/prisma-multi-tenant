@@ -38,9 +38,9 @@ Because `prisma-multi-tenant` does not only allow you to access multiple databas
 ## Installation
 
 ```sh
-npm i -g prisma-multi-tenant
+npm i -g prisma-multi-tenant-v3
 
-prisma-multi-tenant init # Init multi-tenancy in your Prisma project
+prisma-multi-tenant-v3 init # Init multi-tenancy in your Prisma project (short alias: pmt)
 ```
 
 ## Usage
@@ -84,7 +84,7 @@ $> prisma-multi-tenant help
 ```
 
 ```js
-const { MultiTenant } = require('@prisma-multi-tenant/client')
+const { MultiTenant } = require('@prisma-multi-tenant-v3/client')
 
 const multiTenant = new MultiTenant()
 

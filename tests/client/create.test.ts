@@ -1,5 +1,5 @@
 // @ts-ignore
-const { MultiTenant } = require('@prisma-multi-tenant/client')
+const { MultiTenant } = require('@prisma-multi-tenant-v3/client')
 // @ts-ignore
 const { fileExists } = require('../../../cli/helpers/shell')
 

@@ -385,7 +385,7 @@ console.log(users)
 
 Delete a tenant in management.
 
-This method will migrate down the database.
+The tenant's database is not modified or dropped (Prisma 5 has no down migrations); delete it yourself if needed.
 
 **Usage**
 

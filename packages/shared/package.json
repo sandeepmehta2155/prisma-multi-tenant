@@ -1,6 +1,6 @@
 {
-  "name": "@prisma-multi-tenant-v2/shared",
-  "version": "1.0.13",
+  "name": "@prisma-multi-tenant-v3/shared",
+  "version": "3.0.0",
   "description": "Shared methods and constants for prisma-multi-tenant",
   "author": {
     "name": "Thibaud Courtoison",
@@ -14,8 +14,8 @@
     "build"
   ],
   "scripts": {
-    "prepare": "rm -rf build && npm run build && cp -R src/prisma/ build/prisma/",
-    "build": "tsc",
+    "prepack": "rm -rf build && npm run build",
+    "build": "tsc && cp -R src/prisma/ build/prisma/",
     "lint": "eslint src/**/*.ts --fix",
     "prettier": "prettier \"src/**/*.ts\" --check"
   },
@@ -27,18 +27,18 @@
     "prisma": "^5.9.1"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
-    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@types/node": "^24.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
-    "typescript": "^4.1.6"
+    "typescript": "^5.6.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sarang-tops/prisma-multi-tenant"
+    "url": "git+https://github.com/sandeepmehta2155/prisma-multi-tenant.git"
   },
   "keywords": [
     "prisma",
@@ -52,5 +52,8 @@
     "printWidth": 100,
     "semi": false,
     "singleQuote": true
+  },
+  "engines": {
+    "node": ">=18.18"
   }
 }

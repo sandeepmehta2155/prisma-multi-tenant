@@ -44,10 +44,10 @@ const updatePackageJson = async (
     for (let packName of packages) {
       if (
         packageJson.dependencies &&
-        packageJson.dependencies[`@prisma-multi-tenant-v2/${packName}`]
+        packageJson.dependencies[`@prisma-multi-tenant-v3/${packName}`]
       ) {
         packageJson.dependencies[
-          `@prisma-multi-tenant-v2/${packName}`
+          `@prisma-multi-tenant-v3/${packName}`
         ] = `^${versionNumber}`
       }
     }

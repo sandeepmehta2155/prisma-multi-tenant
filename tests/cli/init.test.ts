@@ -14,7 +14,7 @@ describe('init', () => {
     await project.expectFile('multi-tenancy-example.js').toExists()
     await project
       .expectFile('multi-tenancy-example.js')
-      .toContain("require('@prisma-multi-tenant/client')")
+      .toContain("require('@prisma-multi-tenant-v3/client')")
   })
 
   test('init without example file', async () => {

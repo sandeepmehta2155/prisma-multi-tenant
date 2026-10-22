@@ -14,7 +14,7 @@ import {
   isPrismaCliLocallyInstalled,
   translateDatasourceUrl,
   getSchemaPath,
-} from '@prisma-multi-tenant-v2/shared'
+} from '@prisma-multi-tenant-v3/shared'
 
 import { Command, CommandArguments } from '../types'
 import { useYarn } from '../helpers/misc'
@@ -76,13 +76,13 @@ class Init implements Command {
   }
 
   async installPMT() {
-    console.log('\n  Installing `@prisma-multi-tenant-v2/client` as a dependency in your app...')
+    console.log('\n  Installing `@prisma-multi-tenant-v3/client` as a dependency in your app...')
 
     const isUsingYarn = await useYarn()
     const command = isUsingYarn ? 'yarn add --ignore-workspace-root-check' : 'npm install'
     const devOption = isUsingYarn ? '--dev' : '-D'
 
-    await runShell(`${command} @prisma-multi-tenant-v2/client@${packageJson.version}`)
+    await runShell(`${command} @prisma-multi-tenant-v3/client@${packageJson.version}`)
 
     if (!(await isPrismaCliLocallyInstalled())) {
       console.log('\n  Also installing `prisma` as a dev dependency in your app...')
@@ -215,16 +215,17 @@ class Init implements Command {
   async createExample(firstTenant: Datasource | null) {
     console.log('\n  Creating example script...')
 
-    const { dmmf } = requireDistant('@prisma/client')
+    const { Prisma } = requireDistant('@prisma/client')
 
-    const firstModelMapping = dmmf.mappings.modelOperations[0]
+    const modelName: string = Prisma.dmmf.datamodel.models[0].name
 
-    const modelNamePlural = firstModelMapping.plural
-    const modelNameSingular = firstModelMapping.model.toLowerCase()
+    // Prisma 5 client delegates are the model name with a lowercased first letter
+    const modelNameSingular = modelName.charAt(0).toLowerCase() + modelName.slice(1)
+    const modelNamePlural = modelNameSingular + 's'
 
     const script = `
       // const { PrismaClient } = require('@prisma/client') // Uncomment for TypeScript support
-      const { MultiTenant } = require('@prisma-multi-tenant-v2/client')
+      const { MultiTenant } = require('@prisma-multi-tenant-v3/client')
 
       // This is the name of your first tenant, try with another one
       const name = "${firstTenant?.name || 'dev'}"
