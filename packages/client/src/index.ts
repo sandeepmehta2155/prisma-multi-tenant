@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 
-import { Management, runDistantPrisma, requireDistant } from '@prisma-multi-tenant/shared'
+import { Management, runDistantPrisma, requireDistant } from '@prisma-multi-tenant-v3/shared'
 
 interface MultiTenantOptions {
   useManagement?: boolean
@@ -136,7 +136,7 @@ class MultiTenant<PrismaClient extends { $disconnect: () => Promise<void> }> {
 
     await this.management.create(tenant)
 
-    await runDistantPrisma('migrate up --create-db --experimental', tenant, false)
+    await runDistantPrisma('db push', tenant, false)
 
     return this.directGet(tenant, options)
   }
@@ -146,17 +146,12 @@ class MultiTenant<PrismaClient extends { $disconnect: () => Promise<void> }> {
       throw new Error('Cannot use .deleteTenant(name) with `useManagement: false`')
     }
 
-    this.isCliAvailable('deleteTenant')
-
     if (this.tenants[name]) {
       delete this.tenants[name]
     }
 
-    const tenant = await this.management.delete(name)
-
-    await runDistantPrisma('migrate down --experimental', tenant, false)
-
-    return tenant
+    // Prisma 5 has no down migrations: like `pmt delete`, the tenant's database is left untouched
+    return this.management.delete(name)
   }
 
   async existsTenant(name: string): Promise<boolean> {

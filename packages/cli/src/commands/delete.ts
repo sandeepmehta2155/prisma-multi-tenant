@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-import { Management } from '@prisma-multi-tenant/shared'
+import { Management } from '@prisma-multi-tenant-v3/shared'
 
 import { Command, CommandArguments } from '../types'
 import prompt from '../helpers/prompt'
@@ -41,7 +41,7 @@ class Delete implements Command {
       return
     }
 
-    await migrate.migrateOneTenant(management, 'down', name, args.options.schema).catch((e) => {
+    await migrate.migrateOneTenant(management, 'execute', name, args.options.schema).catch((e) => {
       if (args.options.force) {
         console.error(e)
       } else {

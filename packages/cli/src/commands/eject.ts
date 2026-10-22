@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-import { runShell } from '@prisma-multi-tenant/shared'
+import { runShell } from '@prisma-multi-tenant-v3/shared'
 
 import { Command } from '../types'
 import { useYarn } from '../helpers/misc'
@@ -15,10 +15,10 @@ class Eject implements Command {
 
     const yarnOrNpm = (await useYarn()) ? 'yarn remove' : 'npm uninstall'
 
-    await runShell(`${yarnOrNpm} @prisma-multi-tenant/client`)
+    await runShell(`${yarnOrNpm} @prisma-multi-tenant-v3/client`)
 
     console.log(
-      chalk`\n✅  {green Successfully removed \`@prisma-multi-tenant/client\` from your app. Bye! 👋}\n`
+      chalk`\n✅  {green Successfully removed \`@prisma-multi-tenant-v3/client\` from your app. Bye! 👋}\n`
     )
   }
 }

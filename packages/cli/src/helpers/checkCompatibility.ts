@@ -7,9 +7,9 @@ const compareVersions = (a: string, b: string) => {
   const bParts = b.split('.')
 
   for (const i in aParts) {
-    if (aParts[i] > bParts[i]) {
+    if (Number(aParts[i]) > Number(bParts[i])) {
       return 1
-    } else if (aParts[i] < bParts[i]) {
+    } else if (Number(aParts[i]) < Number(bParts[i])) {
       return -1
     }
   }
@@ -22,7 +22,10 @@ export default async (): Promise<void> => {
     let prismaVersion
 
     try {
-      prismaVersion = require('prisma/package.json').version
+      // The app's prisma (what the commands actually run), not the copy bundled with this CLI
+      prismaVersion = require(require.resolve('prisma/package.json', {
+        paths: [process.cwd()],
+      })).version
     } catch {
       console.warn(
         chalk.yellow`Warning: Couldn't find prisma in node_modules. Did you forget to install it locally?`

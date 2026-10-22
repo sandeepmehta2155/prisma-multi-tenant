@@ -1,7 +1,7 @@
 import inquirer, { Question } from 'inquirer'
 import chalk from 'chalk'
 
-import { Datasource } from '@prisma-multi-tenant/shared'
+import { Datasource } from '@prisma-multi-tenant-v3/shared'
 
 import { CommandArguments } from '../types'
 
